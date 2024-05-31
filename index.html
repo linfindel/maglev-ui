@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maglev UI</title>
+
+  <link rel="stylesheet" href="https://linfindel.github.io/nadircss/nadir.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+  <style>
+    #container {
+      width: 25rem;
+    }
+  </style>
+</head>
+<body class="absolute-centre">
+  <div id="container" class="card column">
+    <div class="card text-center" style="width: calc(100% - 5rem);">
+      <h3>Next stop: <span id="next-stop">Nagoya</span></h3>
+    </div>
+
+    <div class="row" style="width: 100%;">
+      <div class="card" style="flex-grow: 66;">
+        <h3 class="row">
+          <span>Tokyo</span>
+          <span class="material-symbols-rounded">arrow_forward</span>
+          <span>Osaka</span>
+        </h3>
+      </div>
+
+      <div class="card" style="flex-grow: 33;">
+        <h3 id="time">00:00</h3>
+      </div>
+    </div>
+
+    <div class="row" style="width: 100%;">
+      <div class="card text-center" style="flex-grow: 33;">
+        <h3><span id="speed">0</span> km/h</h3>
+      </div>
+
+      <div id="map" class="card" style="flex-grow: 66; padding: 0; height: 8rem; width: 1rem;">
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    var map = L.map('map').setView([35.260142, 136.645652], 5);
+
+    L.tileLayer("http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png", {
+      maxZoom: 17,
+    }).addTo(map);
+
+    document.querySelectorAll('.leaflet-control').forEach(e => e.remove());
+  </script>
+</body>
+</html>

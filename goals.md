@@ -1,0 +1,4 @@
+- [ ] Speed
+- [ ] Destination (map?)
+- [ ] Next stop
+- [ ] Time
